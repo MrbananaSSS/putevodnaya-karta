@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Моя карта</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script type="application/json" id="mapData">{"v":12,"mode":"map","name":"Моя карта","title":"Моя карта","subtitle":"","theme":"parchment","showRoutes":true,"animateRoute":true,"center":{"lat":59.619071451437726,"lng":56.769876480102546},"zoom":14,"tileLayer":"osm","points":[{"id":"p_1791722417749_e0q6hy","x":50,"y":50,"lat":59.60795701601689,"lng":56.760435104370124,"title":"Точка 1","description":"","color":"#e94560","imageCount":0,"order":1,"icon":"","distToNext":""},{"id":"p_1791722420920_iuren3","x":50,"y":50,"lat":59.62987844949505,"lng":56.8099594116211,"title":"Точка 2","description":"","color":"#4ecdc4","imageCount":0,"order":2,"icon":"","distToNext":""},{"id":"p_1791722421468_9fl8tl","x":50,"y":50,"lat":59.63430440851716,"lng":56.7685890197754,"title":"Точка 3","description":"","color":"#ffd93d","imageCount":0,"order":3,"icon":"","distToNext":""},{"id":"p_1791722421968_bal5fi","x":50,"y":50,"lat":59.626710493124875,"lng":56.74901962280274,"title":"Точка 4","description":"","color":"#6c5ce7","imageCount":0,"order":4,"icon":"","distToNext":""},{"id":"p_1791722422448_9bexqx","x":50,"y":50,"lat":59.62245715021246,"lng":56.75597190856934,"title":"Точка 5","description":"","color":"#fd79a8","imageCount":0,"order":5,"icon":"","distToNext":""},{"id":"p_1791722422913_dovwbd","x":50,"y":50,"lat":59.625061301654334,"lng":56.78378105163575,"title":"123123","description":"","color":"#00b894","imageCount":1,"order":6,"icon":"","distToNext":""},{"id":"p_1791722423355_227t5o","x":50,"y":50,"lat":59.619201676932235,"lng":56.76833152770997,"title":"Точка 7","description":"","color":"#e17055","imageCount":0,"order":7,"icon":"","distToNext":""},{"id":"p_1791722424442_fehl84","x":50,"y":50,"lat":59.614122508517994,"lng":56.78970336914063,"title":"8","description":"Описание ","color":"#0984e3","imageCount":3,"order":8,"icon":"🚤","distToNext":""},{"id":"p_1791722425048_n0gd0b","x":50,"y":50,"lat":59.61520786543041,"lng":56.81528091430664,"title":"Точка 9","description":"","color":"#e94560","imageCount":1,"order":9,"icon":"","distToNext":""},{"id":"p_1791722425514_rm4ztn","x":50,"y":50,"lat":59.62336862618714,"lng":56.81674003601075,"title":"Точка 10","description":"","color":"#4ecdc4","imageCount":0,"order":10,"icon":"","distToNext":""},{"id":"p_1791722426007_jmlpo6","x":50,"y":50,"lat":59.62098137475758,"lng":56.80197715759278,"title":"12312312","description":"","color":"#ffd93d","imageCount":1,"order":11,"icon":"⛪","distToNext":""},{"id":"p_1791722426599_jxrhzp","x":50,"y":50,"lat":59.61898463416091,"lng":56.79425239562989,"title":"Точка 12","description":"","color":"#6c5ce7","imageCount":0,"order":12,"icon":"","distToNext":""},{"id":"p_1791735693490_2xfb4m","x":50,"y":50,"lat":59.622131617083596,"lng":56.785368919372566,"title":"Точка 13","description":"","color":"#fd79a8","imageCount":0,"order":13,"icon":"","distToNext":""},{"id":"p_1791753861562_r8p0jn","x":50,"y":50,"lat":59.61750870612255,"lng":56.77545547485352,"title":"Точка 14","description":"","color":"#00b894","imageCount":0,"order":14,"icon":"","distToNext":""},{"id":"p_1791753867892_slmjxn","x":50,"y":50,"lat":59.61746800865866,"lng":56.775616407394416,"title":"Точка 15","description":"","color":"#e17055","imageCount":0,"order":15,"icon":"","distToNext":""}],"curves":{},"curvesMap":{"p_1791722422913_dovwbd_p_1791722423355_227t5o":[{"lat":59.619679166092595,"lng":56.77742958068848},{"lat":59.62276097828595,"lng":56.77682876586915},{"lat":59.624149871619586,"lng":56.78060531616212}],"p_1791722422448_9bexqx_p_1791722422913_dovwbd":[{"lat":59.6264500998563,"lng":56.77721500396729},{"lat":59.62293459309386,"lng":56.77086353302003},{"lat":59.62514810322468,"lng":56.76296710968018}],"p_1791722423355_227t5o_p_1791722424442_fehl84":[{"lat":59.61657536521625,"lng":56.77515506744385},{"lat":59.617090876481,"lng":56.78491830825806},{"lat":59.617481574485446,"lng":56.788641214370735}]},"videos":[{"id":"p_1791722454745_1z9ytw","external":false,"fileName":"20610765949535.mp4","orient":"v","ratio":1.7777777777777777,"w":200,"muted":false}],"stickers":[],"passport":{"visible":false,"distance":"","days":"","participants":"","dates":""},"assets":{"points":{"5":["assets/point-5-0.png"],"7":["assets/point-7-0.png","assets/point-7-2.png","assets/point-7-1.png"],"8":["assets/point-8-0.png"],"10":["assets/point-10-0.png"]},"videos":["assets/video-0.mp4"]}}</script>
+<style>
+:root{--page-bg:#f5ecd7;--text:#3d2817;--accent:#c9482a;--route:#c9482a;--card-bg:#ffffff;--text-sec:#555;--border:rgba(0,0,0,.12);--shadow:rgba(0,0,0,.15);--input-bg:#ffffff}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--page-bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Georgia','Palatino Linotype','Book Antiqua',serif}
+.header{max-width:1200px;margin:24px auto 18px;text-align:center;padding:0 14px}
+.header h1{font-size:30px;font-weight:700;margin-bottom:6px;color:var(--text)}
+.header .sub{font-size:15px;color:var(--text-sec);font-style:italic}
+#map-container{height:70vh;min-height:400px;width:100%;position:relative;text-align:center}
+.map-inner{position:relative;display:inline-block;line-height:0;max-width:100%;box-shadow:0 8px 32px var(--shadow);border-radius:8px;user-select:none}
+.map-inner img{max-width:100%;height:auto;display:block;margin:0 auto;border-radius:8px;pointer-events:none}
+#mapView{position:absolute;inset:0;background:#ddd}
+.leaflet-control-attribution{display:none!important}
+.route-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.route-path{fill:none;stroke:var(--route,var(--accent));stroke-width:2.5;stroke-linecap:round;stroke-dasharray:8 6;opacity:.85;vector-effect:non-scaling-stroke}
+.route-path.animated{animation:dash-flow 2s linear infinite}
+@keyframes dash-flow{to{stroke-dashoffset:-28}}
+.marker{position:absolute;width:32px;height:32px;border-radius:50% 50% 50% 0;transform:translate(-50%,-100%) rotate(-45deg);cursor:pointer;border:2px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.35);transition:transform .2s;z-index:10;display:flex;align-items:center;justify-content:center}
+.marker.pulsing{animation:markerPulse 1s ease-out}
+@keyframes markerPulse{0%{transform:translate(-50%,-100%) rotate(-45deg) scale(1)}50%{transform:translate(-50%,-100%) rotate(-45deg) scale(1.4)}100%{transform:translate(-50%,-100%) rotate(-45deg) scale(1)}}
+.marker:hover{transform:translate(-50%,-100%) rotate(-45deg) scale(1.15);box-shadow:0 5px 16px rgba(0,0,0,.5);z-index:20}
+.marker .num{font-size:12px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5);pointer-events:none;transform:rotate(45deg)}
+.marker .micon{font-size:15px;pointer-events:none;transform:rotate(45deg);line-height:1}
+.lm-pin{width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.lm-pin.pulsing{animation:lmPulse 1s ease-out}
+@keyframes lmPulse{0%{transform:rotate(-45deg) scale(1)}50%{transform:rotate(-45deg) scale(1.4)}100%{transform:rotate(-45deg) scale(1)}}
+.lm-pin .mk-num,.lm-pin .mk-icon{transform:rotate(45deg);color:#fff;font-size:12px;font-weight:700;text-shadow:0 1px 2px rgba(0,0,0,.5);line-height:1}
+.lm-pin .mk-icon{font-size:16px}
+.lm-dist{transform:translate(-50%,-140%);font-size:11px;font-weight:700;color:var(--accent);background:var(--card-bg);padding:2px 7px;border-radius:8px;border:1px solid var(--border);box-shadow:0 2px 6px var(--shadow);white-space:nowrap;line-height:1.3}
+.dist-label{position:absolute;transform:translate(-50%,-190%);font-size:11px;font-weight:700;color:var(--accent);background:var(--card-bg);padding:2px 7px;border-radius:8px;border:1px solid var(--border);box-shadow:0 2px 6px var(--shadow);pointer-events:none;z-index:9;white-space:nowrap;line-height:1.3}
+.sticker{position:absolute;z-index:7;padding:8px 12px;border-radius:8px;font-size:14px;line-height:1.35;white-space:pre-wrap;word-break:break-word;pointer-events:none}
+.sticker.font-normal{font-family:'Segoe UI',system-ui,sans-serif}
+.sticker.font-hand{font-family:'Segoe Script','Bradley Hand','Comic Sans MS',cursive}
+.sticker.font-serif{font-family:Georgia,'Times New Roman',serif}
+.sticker.font-bold{font-family:'Segoe UI',system-ui,sans-serif;font-weight:700}
+.passport{position:absolute;top:10px;left:10px;z-index:8;width:min(250px,58%);background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:10px 12px;box-shadow:0 4px 16px var(--shadow);font-size:12px;text-align:left}
+.passport h4{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:7px;font-family:'Segoe UI',sans-serif}
+.passport-row{display:flex;align-items:center;gap:6px;margin-bottom:5px;line-height:1.3}
+.passport-row:last-child{margin-bottom:0}
+.video-float{position:fixed;z-index:1200;border-radius:14px;overflow:hidden;background:#000;touch-action:none;border:2px solid var(--accent);box-shadow:0 8px 24px rgba(0,0,0,.35);will-change:transform;contain:layout style}
+.video-float .vf-full{width:100%;height:100%;position:relative}
+.video-float video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.video-float.collapsed{width:48px!important;height:48px!important;border-radius:50%}
+.video-float.collapsed .vf-full{display:none}
+.video-float.collapsed .vf-mini{display:flex}
+.vf-mini{display:none;width:100%;height:100%;border:none;border-radius:50%;background:var(--accent);color:#fff;font-size:18px;align-items:center;justify-content:center;cursor:pointer}
+.vf-collapse{position:absolute;top:6px;right:6px;width:28px;height:28px;border-radius:50%;border:none;background:rgba(0,0,0,.55);color:#fff;font-size:15px;line-height:1;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center}
+.vf-mute{position:absolute;top:6px;left:6px;width:28px;height:28px;border-radius:50%;border:none;background:rgba(0,0,0,.55);color:#fff;font-size:13px;line-height:1;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center}
+.video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;border:none;background:rgba(0,0,0,.55);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:3}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1300;animation:fadeIn .2s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.card{position:fixed;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;z-index:1400;animation:cardIn .3s ease-out;box-shadow:0 16px 40px var(--shadow);color:var(--text)}
+@keyframes cardIn{from{opacity:0;transform:translate(-50%,-45%)}to{opacity:1;transform:translate(-50%,-50%)}}
+.card-inner{padding:22px;max-height:85vh;overflow-y:auto}
+.card h3{font-size:20px;margin-bottom:12px;padding-right:30px}
+.card .text{font-size:14px;line-height:1.6;color:var(--text-sec);margin-top:10px}
+.card .text p{margin:0 0 6px}
+.card .text ul{margin:4px 0 6px 20px;padding:0}
+.card .text li{margin:2px 0}
+.card .close{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.08);border:none;color:var(--text-sec);font-size:22px;cursor:pointer;padding:4px 12px;border-radius:4px;z-index:5;min-width:36px;min-height:36px}
+.card .close:hover{color:var(--accent);background:rgba(233,69,96,.12)}
+.carousel{position:relative;user-select:none;touch-action:pan-y;margin:6px 0}
+.car-viewport{overflow:hidden;border-radius:8px;cursor:grab;touch-action:pan-y}
+.car-viewport.grabbing{cursor:grabbing}
+.car-track{display:flex;transition:transform .3s ease;will-change:transform}
+.car-track.dragging{transition:none}
+.car-track img{width:100%;flex-shrink:0;display:block;border-radius:8px;pointer-events:none;max-height:50vh;object-fit:contain;background:rgba(0,0,0,.02)}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;z-index:3;min-width:36px;min-height:36px}
+.car-btn:hover{background:#fff}
+.car-prev{left:8px}.car-next{right:8px}
+.car-counter{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.6);color:#fff;padding:4px 10px;border-radius:12px;font-size:12px;z-index:3}
+.car-dots{display:flex;gap:4px;justify-content:center;margin-top:8px}
+.car-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s}
+.car-dot.active{background:var(--accent)}
+.points-list{max-width:1200px;margin:0 auto;padding:20px 14px}
+.points-list h2{font-size:22px;margin-bottom:14px;color:var(--text)}
+.point-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px;box-shadow:0 2px 8px var(--shadow);display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:border-color .2s}
+.point-card:hover{border-color:var(--accent)}
+.point-card.active{border-color:var(--accent);border-width:2px}
+.point-thumb{width:56px;height:56px;border-radius:8px;flex-shrink:0;object-fit:cover;display:block;border:1px solid rgba(0,0,0,.1);position:relative}
+.point-icon-circle{width:56px;height:56px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:700;text-shadow:0 1px 2px rgba(0,0,0,.5);position:relative}
+.thumb-badge{position:absolute;bottom:2px;right:2px;background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:2px 5px;border-radius:10px;line-height:1}
+.point-content{flex:1;min-width:0}
+.point-content h3{font-size:16px;margin-bottom:6px;color:var(--text)}
+.point-content p{font-size:13px;color:var(--text-sec);line-height:1.5}
+.loading-indicator{position:fixed;top:20px;right:20px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:12px 20px;box-shadow:0 4px 16px var(--shadow);z-index:1500;font-size:13px}
+.error-banner{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:14px 20px;box-shadow:0 4px 16px rgba(0,0,0,.2);z-index:1500;max-width:90%;font-size:13px}
+@media(min-width:601px){.card{top:50%;left:50%;transform:translate(-50%,-50%);max-width:460px;width:90%}}
+@media(max-width:600px){.card{bottom:0;left:0;right:0;top:auto;transform:none;width:100%;border-radius:16px 16px 0 0;max-height:85vh;animation:slideUp .3s ease-out}@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}.marker{width:40px;height:40px}.marker .num{font-size:14px}.marker .micon{font-size:18px}.header h1{font-size:22px}.header .sub{font-size:13px}.passport{width:min(210px,55%);font-size:11px}}
+@media (prefers-reduced-motion: reduce){.route-path.animated,.marker.pulsing,.lm-pin.pulsing{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1 class="serif" id="headerTitle"></h1>
+  <div class="sub" id="headerSub"></div>
+</div>
+<div id="map-container">
+  <div id="mapView"></div>
+</div>
+<div class="points-list" id="pointsList"></div>
+<div class="loading-indicator" id="loadingIndicator">Загрузка...</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+  var isLocalFile=window.location.protocol==='file:';
+  var loadingIndicator=document.getElementById('loadingIndicator');
+  var loadProgress={total:0,loaded:0};
+  
+  function updateLoadingIndicator(){
+    if(loadProgress.total===0){
+      loadingIndicator.style.display='none';
+      return;
+    }
+    var pct=Math.round((loadProgress.loaded/loadProgress.total)*100);
+    loadingIndicator.textContent='Загрузка: '+pct+'%';
+    if(pct>=100){
+      setTimeout(function(){loadingIndicator.style.display='none'},500);
+    }
+  }
+  
+  function showLocalFileError(){
+    var banner=document.createElement('div');
+    banner.className='error-banner';
+    banner.innerHTML='<strong>⚠️ Файл открыт локально</strong><br>Для загрузки изображений откройте через веб-сервер:<br><code>python -m http.server 8000</code><br>или загрузите на GitHub Pages';
+    document.body.appendChild(banner);
+  }
+  
+  async function loadAsset(url){
+    if(isLocalFile){
+      showLocalFileError();
+      return null;
+    }
+    try{
+      loadProgress.total++;
+      var res=await fetch(url);
+      if(!res.ok)throw new Error('HTTP '+res.status);
+      var blob=await res.blob();
+      loadProgress.loaded++;
+      updateLoadingIndicator();
+      return URL.createObjectURL(blob);
+    }catch(e){
+      console.error('Failed to load asset:',url,e);
+      loadProgress.loaded++;
+      updateLoadingIndicator();
+      return null;
+    }
+  }
+  
+  function catmullRomToBezierPath(points){
+    var n=points.length;
+    if(n<2)return '';
+    if(n===2)return 'M '+points[0].x+' '+points[0].y+' L '+points[1].x+' '+points[1].y;
+    var d='M '+points[0].x+' '+points[0].y;
+    for(var i=0;i<n-1;i++){
+      var p1=points[i],p2=points[i+1];
+      var prevP,nextP;
+      if(i===0){prevP={x:2*p1.x-p2.x,y:2*p1.y-p2.y}}else{prevP=points[i-1]}
+      if(i===n-2){nextP={x:2*p2.x-p1.x,y:2*p2.y-p1.y}}else{nextP=points[i+2]}
+      var cp1x=p1.x+(p2.x-prevP.x)/6,cp1y=p1.y+(p2.y-prevP.y)/6;
+      var cp2x=p2.x-(nextP.x-p1.x)/6,cp2y=p2.y-(nextP.y-p1.y)/6;
+      d+=' C '+cp1x+' '+cp1y+' '+cp2x+' '+cp2y+' '+p2.x+' '+p2.y;
+    }
+    return d;
+  }
+  
+  function crSamples(pts,per){
+    per=per||16;
+    var n=pts.length;
+    if(n<2)return [];
+    if(n===2)return [[pts[0].lat,pts[0].lng],[pts[1].lat,pts[1].lng]];
+    var out=[];
+    for(var i=0;i<n-1;i++){
+      var p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(n-1,i+2)];
+      for(var t=0;t<per;t++){
+        var s=t/per,s2=s*s,s3=s2*s;
+        var lat=0.5*((2*p1.lat)+(-p0.lat+p2.lat)*s+(2*p0.lat-5*p1.lat+4*p2.lat-p3.lat)*s2+(-p0.lat+3*p1.lat-3*p2.lat+p3.lat)*s3);
+        var lng=0.5*((2*p1.lng)+(-p0.lng+p2.lng)*s+(2*p0.lng-5*p1.lng+4*p2.lng-p3.lng)*s2+(-p0.lng+3*p1.lng-3*p2.lng+p3.lng)*s3);
+        out.push([lat,lng]);
+      }
+    }
+    out.push([pts[n-1].lat,pts[n-1].lng]);
+    return out;
+  }
+  
+  function fmtDesc(text){
+    if(!text)return '';
+    var lines=esc(text).split('\n');
+    var html='',inList=false;
+    for(var i=0;i<lines.length;i++){
+      var t=lines[i].trim();
+      if(t.length>1&&/^[•\-\*]\s*/.test(t)){
+        if(!inList){html+='<ul>';inList=true}
+        html+='<li>'+t.replace(/^[•\-\*]\s*/,'')+'</li>';
+      }else{
+        if(inList){html+='</ul>';inList=false}
+        html+= t==='' ? '<br>' : '<p>'+t+'</p>';
+      }
+    }
+    if(inList)html+='</ul>';
+    return html;
+  }
+  
+  function fmtDist(v){
+    if(!v)return '';
+    v=String(v).trim();
+    return /^\d+(\.\d+)?$/.test(v)?v+' км':v;
+  }
+  
+  function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML}
+
+  var data=JSON.parse(document.getElementById('mapData').textContent);
+  document.getElementById('headerTitle').textContent=data.title||data.name;
+  var sub=document.getElementById('headerSub');
+  if(data.subtitle)sub.textContent=data.subtitle;else sub.style.display='none';
+  
+  var accent=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#c9482a';
+  var sorted=data.points.slice().sort(function(a,b){return a.order-b.order});
+  var animateRoute=data.animateRoute!==false;
+  
+  var assetUrls={};
+  var assetPromises=[];
+  
+  if(data.assets){
+    if(data.assets.map){
+      assetPromises.push(loadAsset(data.assets.map).then(function(url){
+        if(url)assetUrls.map=url;
+      }));
+    }
+    
+    if(data.assets.points){
+      Object.keys(data.assets.points).forEach(function(pi){
+        data.assets.points[pi].forEach(function(path,ii){
+          assetPromises.push(loadAsset(path).then(function(url){
+            if(url){
+              if(!assetUrls.points)assetUrls.points={};
+              if(!assetUrls.points[pi])assetUrls.points[pi]=[];
+              assetUrls.points[pi][ii]=url;
+            }
+          }));
+        });
+      });
+    }
+    
+    if(data.assets.videos){
+      data.assets.videos.forEach(function(path,vi){
+        assetPromises.push(loadAsset(path).then(function(url){
+          if(url){
+            if(!assetUrls.videos)assetUrls.videos=[];
+            assetUrls.videos[vi]=url;
+          }
+        }));
+      });
+    }
+  }
+  
+  Promise.all(assetPromises).then(function(){
+    renderMap();
+    renderPoints();
+    renderVideos();
+  });
+  
+  function renderMap(){
+    if(data.mode==='photo'){
+      if(assetUrls.map){
+        document.getElementById('mapImg').src=assetUrls.map;
+      }
+      renderPhotoMap();
+    }else{
+      renderLiveMap();
+    }
+  }
+  
+  function renderPhotoMap(){
+    var inner=document.getElementById('mapInner');
+    var markers={};
+    
+    sorted.forEach(function(p,i){
+      var m=document.createElement('div');
+      m.className='marker';
+      m.dataset.id=p.id;
+      m.style.left=p.x+'%';
+      m.style.top=p.y+'%';
+      m.style.backgroundColor=p.color;
+      m.innerHTML=p.icon?'<span class="micon">'+esc(p.icon)+'</span>':'<span class="num">'+(i+1)+'</span>';
+      m.addEventListener('click',function(e){e.stopPropagation();showCard(p)});
+      inner.appendChild(m);
+      markers[p.id]=m;
+    });
+    
+    var svg=document.getElementById('routeSvg');
+    if(svg&&sorted.length>1&&data.showRoutes){
+      for(var i=0;i<sorted.length-1;i++){
+        var a=sorted[i],b=sorted[i+1];
+        var key=a.id+'_'+b.id;
+        var nodes=(data.curves&&data.curves[key])||[];
+        var dx=b.x-a.x,dy=b.y-a.y,len2=dx*dx+dy*dy;
+        nodes=nodes.slice().sort(function(n1,n2){
+          var t1=len2>0?((n1.x-a.x)*dx+(n1.y-a.y)*dy)/len2:0;
+          var t2=len2>0?((n2.x-a.x)*dx+(n2.y-a.y)*dy)/len2:0;
+          return t1-t2;
+        });
+        var pts=[{x:a.x,y:a.y}].concat(nodes).concat([{x:b.x,y:b.y}]);
+        var animClass=animateRoute?'animated':'';
+        var path=document.createElementNS('http://www.w3.org/2000/svg','path');
+        path.setAttribute('class','route-path '+animClass);
+        path.setAttribute('d',catmullRomToBezierPath(pts));
+        svg.appendChild(path);
+      }
+      var last=sorted[sorted.length-1],prev=sorted[sorted.length-2];
+      var adx=last.x-prev.x,ady=last.y-prev.y;
+      var len=Math.sqrt(adx*adx+ady*ady)||1;
+      var ux=adx/len,uy=ady/len,sz=1.5;
+      var arrow=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+      var px=last.x,py=last.y;
+      arrow.setAttribute('points',px+','+py+' '+(px-ux*sz-uy*sz*.7)+','+(py-uy*sz+ux*sz*.7)+' '+(px-ux*sz+uy*sz*.7)+','+(py-uy*sz-ux*sz*.7));
+      arrow.setAttribute('fill','var(--route,var(--accent))');
+      arrow.setAttribute('opacity','.85');
+      svg.appendChild(arrow);
+    }
+    
+    for(var i=0;i<sorted.length-1;i++){
+      var a=sorted[i],b=sorted[i+1];
+      if(!a.distToNext)continue;
+      var key=a.id+'_'+b.id;
+      var nodes=(data.curves&&data.curves[key])||[];
+      var mx,my;
+      if(nodes.length){var nn=nodes[Math.floor(nodes.length/2)];mx=nn.x;my=nn.y}
+      else{mx=(a.x+b.x)/2;my=(a.y+b.y)/2}
+      var lbl=document.createElement('div');
+      lbl.className='dist-label';
+      lbl.textContent=fmtDist(a.distToNext);
+      lbl.style.left=mx+'%';
+      lbl.style.top=my+'%';
+      inner.appendChild(lbl);
+    }
+    window._photoMarkers=markers;
+  }
+  
+  function renderLiveMap(){
+    if(typeof L==='undefined'){
+      console.error('Leaflet not loaded');
+      return;
+    }
+    var tiles={
+      osm:{url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',attr:'&copy; OpenStreetMap contributors'},
+      esri:{url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',attr:'&copy; Esri'},
+      carto:{url:'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',attr:'&copy; OpenStreetMap &copy; CARTO'}
+    };
+    var map=L.map('mapView',{zoomControl:false,doubleClickZoom:false,attributionControl:false});
+    L.control.zoom({position:'topright'}).addTo(map);
+    var c=data.center||{lat:55.75,lng:37.62};
+    map.setView([c.lat,c.lng],data.zoom||6);
+    var tt=tiles[data.tileLayer]||tiles.osm;
+    L.tileLayer(tt.url,{attribution:tt.attr,maxZoom:19}).addTo(map);
+    setTimeout(()=>map.invalidateSize(),150);
+    
+    var curvesMap=data.curvesMap||{};
+    
+    function segNodes(a,b){
+      var key=a.id+'_'+b.id;
+      var nodes=(curvesMap[key]||[]).slice();
+      var dlat=b.lat-a.lat,dlng=b.lng-a.lng,len2=dlat*dlat+dlng*dlng;
+      nodes.sort(function(n1,n2){
+        var t1=len2>0?((n1.lat-a.lat)*dlat+(n1.lng-a.lng)*dlng)/len2:0;
+        var t2=len2>0?((n2.lat-a.lat)*dlat+(n2.lng-a.lng)*dlng)/len2:0;
+        return t1-t2;
+      });
+      return nodes;
+    }
+    
+    var mapMarkers={};
+    if(data.showRoutes&&sorted.length>1){
+      var all=[];
+      for(var i=0;i<sorted.length-1;i++){
+        var a=sorted[i],b=sorted[i+1];
+        var seq=[{lat:a.lat,lng:a.lng}].concat(segNodes(a,b)).concat([{lat:b.lat,lng:b.lng}]);
+        var sm=crSamples(seq,16);
+        if(i>0)sm.shift();
+        all=all.concat(sm);
+      }
+      var animClass=animateRoute?'animated':'';
+      var polyline=L.polyline(all,{color:accent,weight:3,dashArray:'8 6',opacity:.85,interactive:false,className:'route-path '+animClass});
+      polyline.addTo(map);
+    }
+    
+    sorted.forEach(function(p,i){
+      var inner=p.icon?'<span class="mk-icon">'+esc(p.icon)+'</span>':'<span class="mk-num">'+(i+1)+'</span>';
+      var icon=L.divIcon({className:'',html:'<div class="lm-pin" style="background:'+(p.color||'#e94560')+'">'+inner+'</div>',iconSize:[34,34],iconAnchor:[17,34]});
+      var mk=L.marker([p.lat,p.lng],{icon:icon});
+      mk.on('click',function(){showCard(p)});
+      mk.addTo(map);
+      mapMarkers[p.id]=mk;
+    });
+    
+    (data.stickers||[]).forEach(function(s){
+      if(typeof s.lat!=='number')return;
+      var bg=s.bg==='transparent'?'transparent':(s.bg||'rgba(255,255,255,.8)');
+      var html='<div class="sticker '+(s.font||'font-normal')+'" style="color:'+(s.textColor||'#1a1a1a')+';background:'+bg+';width:'+(s.mapWpx||180)+'px">'+esc(s.text||'')+'</div>';
+      L.marker([s.lat,s.lng],{icon:L.divIcon({className:'',html:html,iconSize:null}),interactive:false}).addTo(map);
+    });
+    
+    if(data.showRoutes){
+      for(var i=0;i<sorted.length-1;i++){
+        var a=sorted[i];
+        if(!a.distToNext)continue;
+        var b=sorted[i+1];
+        var ns=segNodes(a,b);
+        var mid;
+        if(ns.length){var nn=ns[Math.floor(ns.length/2)];mid=[nn.lat,nn.lng]}
+        else{mid=[(a.lat+b.lat)/2,(a.lng+b.lng)/2]}
+        L.marker(mid,{icon:L.divIcon({className:'',html:'<div class="lm-dist">'+esc(fmtDist(a.distToNext))+'</div>',iconSize:[0,0]}),interactive:false}).addTo(map);
+      }
+    }
+    
+    if(data.passport&&data.passport.visible){
+      var pf=document.createElement('div');
+      pf.className='passport';
+      pf.style.position='absolute';
+      pf.style.top='10px';
+      pf.style.left='10px';
+      pf.style.zIndex='800';
+      var rows=[['📏',data.passport.distance],['📅',data.passport.days],['👥',data.passport.participants],['🗓️',data.passport.dates]];
+      var ph='<h4>Паспорт маршрута</h4>';
+      rows.forEach(function(r){ph+='<div class="passport-row"><span>'+r[0]+'</span><span>'+(r[1]?esc(r[1]):'—')+'</span></div>'});
+      pf.innerHTML=ph;
+      document.getElementById('map-container').appendChild(pf);
+    }
+    
+    window._map=map;
+    window._mapMarkers=mapMarkers;
+  }
+  
+  function renderPoints(){
+    var pl=document.getElementById('pointsList');
+    if(sorted.length===0)return;
+    
+    var html='<h2>Точки маршрута</h2>';
+    sorted.forEach(function(p,i){
+      var imgCount=p.imageCount||0;
+      var thumbHtml='';
+      if(imgCount>0&&assetUrls.points&&assetUrls.points[i]&&assetUrls.points[i][0]){
+        thumbHtml='<img class="point-thumb" src="'+assetUrls.points[i][0]+'" alt="">';
+        if(imgCount>1){
+          thumbHtml+='<div class="thumb-badge">+'+(imgCount-1)+'</div>';
+        }
+      }else{
+        var color=p.color||'#e94560';
+        var icon=p.icon||(i+1);
+        thumbHtml='<div class="point-icon-circle" style="background:'+color+'">'+esc(icon)+'</div>';
+      }
+      html+='<div class="point-card" data-point-id="'+p.id+'">';
+      html+='<div style="position:relative">'+thumbHtml+'</div>';
+      html+='<div class="point-content"><h3>'+(p.icon?esc(p.icon)+' ':'')+(i+1)+'. '+esc(p.title)+'</h3>';
+      if(p.description)html+='<div>'+fmtDesc(p.description)+'</div>';
+      html+='</div></div>';
+    });
+    pl.innerHTML=html;
+    
+    document.addEventListener('click',function(e){
+      var item=e.target.closest('.point-card');
+      if(!item)return;
+      var pointId=item.dataset.pointId;
+      console.log('Клик по точке:',pointId);
+      var p=sorted.find(function(x){return x.id===pointId});
+      if(!p)return;
+      
+      pl.querySelectorAll('.point-card').forEach(function(c){c.classList.remove('active')});
+      item.classList.add('active');
+      
+      if(data.mode==='photo'){
+        var mapWrap=document.getElementById('map-container');
+        mapWrap.scrollIntoView({behavior:'smooth',block:'center'});
+        var m=window._photoMarkers?window._photoMarkers[p.id]:null;
+        if(m){
+          m.classList.add('pulsing');
+          setTimeout(function(){m.classList.remove('pulsing')},1000);
+        }
+      }else{
+        var mapOuter=document.getElementById('map-container');
+        mapOuter.scrollIntoView({behavior:'smooth',block:'center'});
+        if(typeof p.lat==='number'&&typeof p.lng==='number'&&window._map){
+          window._map.flyTo([p.lat,p.lng],15,{duration:1});
+          var mk=window._mapMarkers[p.id];
+          if(mk){
+            var iconEl=mk.getElement().querySelector('.lm-pin');
+            if(iconEl){
+              iconEl.classList.add('pulsing');
+              setTimeout(function(){iconEl.classList.remove('pulsing')},1000);
+            }
+          }
+        }
+      }
+      
+      setTimeout(function(){showCard(p)},600);
+    });
+  }
+  
+  function renderVideos(){
+    var floatingEls=[];
+    function clampFloat(x,y,w,h){
+      return {
+        x:Math.max(8,Math.min(window.innerWidth-w-8,x)),
+        y:Math.max(8,Math.min(window.innerHeight-h-8,y))
+      };
+    }
+    function floatSize(v){
+      var ratio=(v.ratio>0)?v.ratio:9/16;
+      var w=(v.w>50)?v.w:240;
+      var h=w*ratio;
+      var maxH=window.innerHeight*0.62;
+      if(h>maxH){h=maxH;w=h/ratio}
+      var maxW=window.innerWidth*0.6;
+      if(w>maxW){w=maxW;h=w/ratio}
+      return {w:w,h:h};
+    }
+    function collapseFloat(el){
+      if(el._video)el._video.pause();
+      var pl=el.querySelector('.video-play');
+      if(pl)pl.textContent='▶';
+      el.classList.add('collapsed');
+    }
+    function collapseAllFloats(){
+      floatingEls.forEach(function(el){
+        if(!el.classList.contains('collapsed'))collapseFloat(el);
+      });
+    }
+    
+    (data.videos||[]).forEach(function(v,i){
+      var src=v.external?v.fileName:(assetUrls.videos&&assetUrls.videos[i]);
+      if(!src)return;
+      var sz=floatSize(v);
+      var el=document.createElement('div');
+      el.className='video-float';
+      el.style.width=sz.w+'px';
+      el.style.height=sz.h+'px';
+      var p0=clampFloat(window.innerWidth-sz.w-16-i*12,window.innerHeight-sz.h-16-i*12,sz.w,sz.h);
+      el.style.transform='translate('+p0.x+'px,'+p0.y+'px)';
+      el.dataset.x=p0.x;
+      el.dataset.y=p0.y;
+      var full=document.createElement('div');
+      full.className='vf-full';
+      console.log('Попытка загрузки видео:',src);
+      var video=document.createElement('video');
+      video.src=src;
+      video.loop=true;
+      video.playsInline=true;
+      video.preload='metadata';
+      video.muted=v.muted!==false;
+      video.setAttribute('playsinline','');
+      video.onerror=function(){
+        this.style.display='none';
+        var err=document.createElement('div');
+        err.style.cssText='position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-size:13px;text-align:center;padding:10px;background:rgba(0,0,0,.7)';
+        err.textContent='Видео не найдено. Проверьте, что папка assets загружена на GitHub рядом с index.html';
+        full.appendChild(err);
+      };
+      full.appendChild(video);
+      var play=document.createElement('button');
+      play.className='video-play';
+      play.textContent='▶';
+      play.addEventListener('pointerdown',function(e){e.stopPropagation()});
+      play.addEventListener('click',function(e){
+        e.stopPropagation();
+        if(video.paused){video.play().catch(function(){});play.textContent='⏸'}
+        else{video.pause();play.textContent='▶'}
+      });
+      full.appendChild(play);
+      var col=document.createElement('button');
+      col.className='vf-collapse';
+      col.textContent='—';
+      col.addEventListener('pointerdown',function(e){e.stopPropagation()});
+      col.addEventListener('click',function(e){e.stopPropagation();collapseFloat(el)});
+      full.appendChild(col);
+      var mute=document.createElement('button');
+      mute.className='vf-mute';
+      mute.textContent=v.muted!==false?'🔇':'🔊';
+      mute.addEventListener('pointerdown',function(e){e.stopPropagation()});
+      mute.addEventListener('click',function(e){
+        e.stopPropagation();
+        video.muted=!video.muted;
+        mute.textContent=video.muted?'🔇':'🔊';
+      });
+      full.appendChild(mute);
+      var mini=document.createElement('button');
+      mini.className='vf-mini';
+      mini.textContent='▶';
+      el.appendChild(full);
+      el.appendChild(mini);
+      var dragging=false,moved=false,sx=0,sy=0,ox=0,oy=0,wasPlaying=false;
+      el.addEventListener('pointerdown',function(e){
+        if(e.target.closest('.video-play')||e.target.closest('.vf-collapse')||e.target.closest('.vf-mute'))return;
+        e.preventDefault();
+        dragging=true;
+        moved=false;
+        sx=e.clientX;
+        sy=e.clientY;
+        ox=parseFloat(el.dataset.x)||0;
+        oy=parseFloat(el.dataset.y)||0;
+        if(video&&!video.paused){
+          video.pause();
+          wasPlaying=true;
+        }
+        el.setPointerCapture(e.pointerId);
+      });
+      el.addEventListener('pointermove',function(e){
+        if(!dragging)return;
+        var dx=e.clientX-sx,dy=e.clientY-sy;
+        if(Math.abs(dx)>4||Math.abs(dy)>4)moved=true;
+        if(!moved)return;
+        var r=el.getBoundingClientRect();
+        var pp=clampFloat(ox+dx,oy+dy,r.width,r.height);
+        el.style.transform='translate('+pp.x+'px,'+pp.y+'px)';
+        el.dataset.x=pp.x;
+        el.dataset.y=pp.y;
+      });
+      function endDrag(e){
+        if(!dragging)return;
+        dragging=false;
+        try{el.releasePointerCapture(e.pointerId)}catch(_){}
+        if(wasPlaying&&video){
+          video.play().catch(function(){});
+          wasPlaying=false;
+        }
+        if(!moved&&el.classList.contains('collapsed')){
+          el.classList.remove('collapsed');
+          var rr=el.getBoundingClientRect();
+          var ppp=clampFloat(parseFloat(el.dataset.x)||0,parseFloat(el.dataset.y)||0,rr.width,rr.height);
+          el.style.transform='translate('+ppp.x+'px,'+ppp.y+'px)';
+          el.dataset.x=ppp.x;
+          el.dataset.y=ppp.y;
+        }
+      }
+      el.addEventListener('pointerup',endDrag);
+      el.addEventListener('pointercancel',endDrag);
+      el._video=video;
+      floatingEls.push(el);
+      document.body.appendChild(el);
+    });
+    window.addEventListener('resize',function(){
+      floatingEls.forEach(function(el){
+        var r=el.getBoundingClientRect();
+        var pp=clampFloat(parseFloat(el.dataset.x)||0,parseFloat(el.dataset.y)||0,r.width,r.height);
+        el.style.transform='translate('+pp.x+'px,'+pp.y+'px)';
+        el.dataset.x=pp.x;
+        el.dataset.y=pp.y;
+      });
+    });
+    window._collapseAllFloats=collapseAllFloats;
+  }
+  
+  function showCard(p){
+    if(window._collapseAllFloats)window._collapseAllFloats();
+    closeCard();
+    var ov=document.createElement('div');
+    ov.className='overlay';
+    ov.addEventListener('click',closeCard);
+    var card=document.createElement('div');
+    card.className='card';
+    
+    var imgs=[];
+    var pi=sorted.indexOf(p);
+    if(assetUrls.points&&assetUrls.points[pi]){
+      imgs=assetUrls.points[pi].filter(function(u){return u});
+    }
+    
+    var multi=imgs.length>1;
+    var html='<button class="close">&times;</button><div class="card-inner">';
+    html+='<h3 class="serif">'+(p.icon?esc(p.icon)+' ':'')+esc(p.title)+'</h3>';
+    if(imgs.length){
+      html+='<div class="carousel"><div class="car-viewport"><div class="car-track">';
+      imgs.forEach(function(src){html+='<img src="'+src+'" alt="">'});
+      html+='</div></div>';
+      if(multi){
+        html+='<button class="car-btn car-prev">&lsaquo;</button><button class="car-btn car-next">&rsaquo;</button>';
+        html+='<div class="car-counter">1 / '+imgs.length+'</div><div class="car-dots">';
+        imgs.forEach(function(_,i){html+='<div class="car-dot'+(i===0?' active':'')+'" data-i="'+i+'"></div>'});
+        html+='</div>';
+      }
+      html+='</div>';
+    }
+    if(p.description)html+='<div class="text">'+fmtDesc(p.description)+'</div>';
+    html+='</div>';
+    card.innerHTML=html;
+    card.querySelector('.close').addEventListener('click',closeCard);
+    document.body.appendChild(ov);
+    document.body.appendChild(card);
+    window._ov=ov;
+    window._card=card;
+    if(multi)initCarousel(card.querySelector('.carousel'));
+    var h=function(e){if(e.key==='Escape'){closeCard();document.removeEventListener('keydown',h)}};
+    document.addEventListener('keydown',h);
+  }
+  
+  function closeCard(){if(window._ov){window._ov.remove();window._ov=null}if(window._card){window._card.remove();window._card=null}}
+  
+  function initCarousel(car){
+    var viewport=car.querySelector('.car-viewport');
+    var track=car.querySelector('.car-track');
+    var total=track.querySelectorAll('img').length;
+    var idx=0,startX=0,currentX=0,dragging=false;
+    function update(animate){
+      if(animate)track.classList.remove('dragging');else track.classList.add('dragging');
+      track.style.transform='translateX('+(-idx*100)+'%)';
+      var c=car.querySelector('.car-counter');
+      if(c)c.textContent=(idx+1)+' / '+total;
+      car.querySelectorAll('.car-dot').forEach(function(d,i){d.classList.toggle('active',i===idx)});
+    }
+    var prev=car.querySelector('.car-prev'),next=car.querySelector('.car-next');
+    if(prev)prev.addEventListener('click',function(){if(idx>0){idx--;update(true)}});
+    if(next)next.addEventListener('click',function(){if(idx<total-1){idx++;update(true)}});
+    car.querySelectorAll('.car-dot').forEach(function(d,i){d.addEventListener('click',function(){idx=i;update(true)})});
+    viewport.addEventListener('pointerdown',function(e){
+      if(e.target.closest('.car-btn'))return;
+      dragging=true;
+      startX=e.clientX;
+      currentX=0;
+      viewport.classList.add('grabbing');
+      viewport.setPointerCapture(e.pointerId);
+    });
+    viewport.addEventListener('pointermove',function(e){
+      if(!dragging)return;
+      currentX=e.clientX-startX;
+      var pct=(currentX/viewport.offsetWidth)*100;
+      track.classList.add('dragging');
+      track.style.transform='translateX('+(-idx*100+pct)+'%)';
+    });
+    function endDrag(e){
+      if(!dragging)return;
+      dragging=false;
+      viewport.classList.remove('grabbing');
+      try{viewport.releasePointerCapture(e.pointerId)}catch(_){}
+      var thr=viewport.offsetWidth/4;
+      if(currentX<-thr&&idx<total-1)idx++;
+      else if(currentX>thr&&idx>0)idx--;
+      update(true);
+    }
+    viewport.addEventListener('pointerup',endDrag);
+    viewport.addEventListener('pointercancel',endDrag);
+    update(true);
+  }
+  
+  updateLoadingIndicator();
+})();
+</script>
+</body>
+</html>
